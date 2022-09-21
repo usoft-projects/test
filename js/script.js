@@ -69,13 +69,16 @@ function Details_Branch(d){
     document.getElementById("bar_title_1").innerHTML = d.id
     var tmp_fail = []
     var tmp_pass = []
+    var all_select = []
     for (var i = 0;i<all_clear_data.length;i++){
         // console.log(all_clear_data[i])
         if(all_clear_data[i].includes(d.id) && all_clear_data[i].includes("PASSED")){
             tmp_pass.push(all_clear_data[i])
+            all_select.push(all_clear_data[i])
         }
         else if(all_clear_data[i].includes(d.id) && all_clear_data[i].includes("FAILED")){
             tmp_fail.push(all_clear_data[i])
+            all_select.push(all_clear_data[i])
         }
     }
     data_chart_failed = tmp_fail.length 
@@ -91,7 +94,32 @@ function Details_Branch(d){
         document.getElementById("information_1_status").innerHTML = '<i class="fas fa-smile" style="color: #36b9cc;"></i>'
     }
     amount_1 = (100 * data_chart_passed) / (data_chart_passed + data_chart_failed)
-    console.log(amount_1)
+    console.log(all_select)
+    table = document.getElementById("data_to_table")
+    table.innerHTML = ""
+    for(var i = 0;i<all_select.length;i++){
+
+      var date = all_select[i].substring(
+        all_select[i].indexOf("<") + 1, 
+        all_select[i].lastIndexOf(">")
+      );
+
+      var name = all_select[i].substring(
+        all_select[i].indexOf("]") + 1, 
+        all_select[i].lastIndexOf("(NC")
+      );
+
+      var NC = all_select[i].substring(
+        all_select[i].indexOf("NC_Centos") , 
+        all_select[i].lastIndexOf("_wo_license")
+      ); 
+      
+      if (all_select[i].includes("PASSED")){
+        table.innerHTML +=  '<tr><td>'+name+'</td><td>'+NC+'</td><td >'+date+'</td><td style="background-color: rgba(54, 162, 235, 0.2);">PASSED</td></tr>'
+      }else{
+        table.innerHTML +=  '<tr><td>'+name+'</td><td>'+NC+'</td><td >'+date+'</td><td style="background-color: rgba(255, 99, 132, 0.2);">FAILED</td></tr>'
+      }
+    }
 }
 
 var amount_2 = ""
@@ -124,7 +152,6 @@ function Details_Branch_2(d){
         document.getElementById("information_2_status").innerHTML = '<i class="fas fa-smile" style="color: #36b9cc;"></i>'
     }
     amount_2 = (100 * data_chart_passed) / (data_chart_passed + data_chart_failed)
-    console.log(amount_2)
     last_status(amount_1, amount_2)
 }
 function last_status(amount_1, amount_2){
