@@ -71,7 +71,7 @@
             </div> -->
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <img class="sidebar-card-illustration mb-2" src="img/MILSOFT.gif" alt="...">
                 <p class="text-center mb-2">TEST Status</p>
                 <a class="btn btn-danger btn-sm" href="#!">Bad</a>
             </div>
@@ -100,8 +100,8 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">MANTDL - Report System</span>
-                                <!-- <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg"> -->
+                                <img class="img-profile rounded-circle"
+                                    src="img/MILSOFT.gif">
                             </a>
                         </li>
 
@@ -130,7 +130,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Total Number of Tests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">40000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="total_test">40000</div>
                                         </div>
                                         <!-- <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -148,7 +148,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Total Number of Tests Passed</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">21500</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="total_passed">21500</div>
                                         </div>
                                         <!-- <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -166,7 +166,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                                 Total Number of Tests Failed</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">15500</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="total_failed">15500</div>
                                         </div>
                                         <!-- <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -183,7 +183,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Last Date of Test</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">15500</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="last_date_test">15500</div>
                                         </div>
                                         <!-- <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -192,38 +192,63 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <!-- Content Row -->
-
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                    <hr>
+                    <div class="container-fluid">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Select Branch or Version of NC 
+                            </button>
+                            <div class="dropdown-menu" id = "branch_list">
+                              <!-- <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a> -->
                             </div>
-                            <div class="card-body">
-                                <div class="chart-bar">
-                                    <canvas id="myBarChart"></canvas>
+                          </div>
+                          <br> <br>
+
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary" id ="bar_title_1">Test Status - Bar Chart</h6>
                                 </div>
-                                <hr>
-                                Styling for the bar chart can be found in the
-                                <code>/js/demo/chart-bar-demo.js</code> file.
-                            </div>
-                        </div>   
-
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-bar">
-                                    <canvas id="myBarChart2"></canvas>
+                                <div class="card-body">
+                                    <div class="chart-bar">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                    <hr>
                                 </div>
-                                <hr>
-                                Styling for the bar chart can be found in the
-                                <code>/js/demo/chart-bar-demo.js</code> file.
+                            </div>   
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Select Branch or Version of NC 
+                            </button>
+
+                            <div class="dropdown-menu" id = "branch_list">
+                              <!-- <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a> -->
                             </div>
-                        </div>  
+                          </div>
+                          <br> <br>
+
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-bar">
+                                        <canvas id="myBarChart2"></canvas>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 
@@ -254,9 +279,10 @@
     </a>
 
 
-
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/script.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
