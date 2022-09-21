@@ -46,9 +46,9 @@ document.getElementById("total_test").innerHTML = all_clear_data.length
 document.getElementById("total_passed").innerHTML = PASSED.length
 document.getElementById("total_failed").innerHTML = FAILED.length
 
-var mySubString = all_clear_data[all_clear_data.length - 1].substring(
-    all_clear_data[all_clear_data.length - 1].indexOf("<") + 1, 
-    all_clear_data[all_clear_data.length - 1].lastIndexOf(">")
+var mySubString = all_clear_data[0].substring(
+    all_clear_data[0].indexOf("<") + 1, 
+    all_clear_data[0].lastIndexOf(">")
 );
 
 document.getElementById("last_date_test").innerHTML = mySubString
