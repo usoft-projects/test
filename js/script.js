@@ -29,10 +29,10 @@ for(var i = 0; i<allText.length;i++){
     branch.push(mySubString)
   }
 
-  if(allText[i].includes("PASSED")){
+  if(allText[i].includes("PASSED") && allText[i].includes("_wo_license)")){
     PASSED.push(allText[i])
     all_clear_data.push(allText[i])
-  }else if(allText[i].includes("FAILED")){
+  }else if(allText[i].includes("FAILED") && allText[i].includes("_wo_license)")){
     FAILED.push(allText[i])
     all_clear_data.push(allText[i])
   }
